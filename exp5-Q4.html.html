@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cake Shop - 23CS2049 Web Tech Lab</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #fff0cc);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      background: #ff6699;
+      padding: 20px;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+    .cake-card {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .cake-card:hover {
+      transform: scale(1.05);
+    }
+    .cake-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .cake-card h3 {
+      margin: 10px 0 5px;
+      color: #333;
+    }
+    .cake-card p {
+      margin: 0;
+      color: #666;
+    }
+    .cake-card input {
+      margin-top: 8px;
+      width: 60px;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #ff6600;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #cc5200;
+    }
+    .result {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff7e6;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 16px;
+    }
+    .total {
+      font-weight: bold;
+      font-size: 18px;
+      color: #e60000;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>🎂 Welcome to Our Cake Shop 🎂</header>
+  
+  <div class="container">
+    <div class="cake-card">
+      <img src="/home/madhan/Downloads/CHOCOLATE CAKE.jpg" alt="Chocolate Cake">
+      <h3>Chocolate Cake</h3>
+      <p>₹500</p>
+      <input type="number" id="choco" min="0" value="0">
+    </div>
+    <div class="cake-card">
+      <img src="/home/madhan/Downloads/VANILLA.jpg" alt="Vanilla Cake">
+      <h3>Vanilla Cake</h3>
+      <p>₹400</p>
+      <input type="number" id="vanilla" min="0" value="0">
+    </div>
+    <div class="cake-card">
+      <img src="/home/madhan/Downloads/STRAWBERY .jpg" alt="Strawberry Cake">
+      <h3>Strawberry Cake</h3>
+      <p>₹450</p>
+      <input type="number" id="strawberry" min="0" value="0">
+    </div>
+    <div class="cake-card">
+      <img src="/home/madhan/Downloads/BLACK FOREST.jpg" alt="Black Forest">
+      <h3>Black Forest</h3>
+      <p>₹600</p>
+      <input type="number" id="black" min="0" value="0">
+    </div>
+  </div>
+  
+  <button onclick="calculateBill()">🛒 Calculate Bill</button>
+  
+  <div class="result" id="billResult">Your bill will appear here.</div>
+  
+  <script>
+    function calculateBill() {
+      let choco = document.getElementById("choco").value * 500;
+      let vanilla = document.getElementById("vanilla").value * 400;
+      let strawberry = document.getElementById("strawberry").value * 450;
+      let black = document.getElementById("black").value * 600;
+
+      let total = choco + vanilla + strawberry + black;
+
+      document.getElementById("billResult").innerHTML = 
+        `🍫 Chocolate Cake: ₹${choco}<br>
+         🍦 Vanilla Cake: ₹${vanilla}<br>
+         🍓 Strawberry Cake: ₹${strawberry}<br>
+         🌲 Black Forest: ₹${black}<br><br>
+         <div class="total">Total Bill: ₹${total}</div>`;
+    }
+  </script>
+</body>
+</html>
